@@ -15,8 +15,13 @@ require("appl_functions.php");
 
 // Dispatching: Die über den Parameter "id" definierte Funktion ausführen
 $func = getId();
+if(!isset($_SESSION['bid'])){
+    $flist = getValue("cfg_func_list");
+}else{
+    $flist = getValue("cfg_func_auth_list");
+}
 // Falls  die verlangte Funktion nicht in der Liste der akzeptierten Funktionen ist, Default-Seite laden
-$flist = getValue("cfg_func_list");
+//$flist = getValue("cfg_func_list");
 if (!in_array($func, $flist)) $func = $flist[0];
 // Aktive Funktion global speichern, da diese später noch verwendet wird
 setValue("func", $func);

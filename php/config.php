@@ -9,6 +9,10 @@
 setValue("cfg_func_list", array("login","registration"));
 // Inhalt des Menus
 setValue("cfg_menu_list", array("login"=>"Login","registration"=>"Registration"));
+// Funktionen
+setValue("cfg_func_auth_list", array("ausloggen"));
+// Inhalt des Menus
+setValue("cfg_menu_auth_list", array("ausloggen"=>"Logout"));
 
 // Datenbankverbindung herstellen
 $db = mysqli_connect("127.0.0.1", "root", "gibbiX12345", "bilderdb");

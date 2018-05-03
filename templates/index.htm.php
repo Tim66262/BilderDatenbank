@@ -23,7 +23,13 @@
 		<a class="navbar-brand">Bilder-DB</a>
       </div>
 	  <ul class="nav navbar-nav">
-        <?php echo getMenu(getValue("cfg_menu_list")); ?>
+        <?php 
+          if(!isset($_SESSION['bid'])){
+          echo getMenu(getValue("cfg_menu_list"));     
+          }else{
+              echo getMenu(getValue("cfg_menu_auth_list"));
+          }
+          ?>
       </ul>
 	</div>
   </nav>
