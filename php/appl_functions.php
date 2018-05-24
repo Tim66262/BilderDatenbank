@@ -20,6 +20,53 @@ function login() {
    
 }
 
+function access() {
+    // Template abfüllen und Resultat zurückgeben
+    if(isset($_POST['login'])){
+        userLogin($_POST);
+        setValues($_POST);
+        
+    }
+    setValue("phpmodule", $_SERVER['PHP_SELF']."?id=".getValue("func"));
+    return runTemplate( "../templates/".getValue("func").".htm.php" );
+    
+}
+
+function public_gallery() {
+    // Template abfüllen und Resultat zurückgeben
+    if(isset($_POST['login'])){
+        userLogin($_POST);
+        setValues($_POST);
+        
+    }
+    setValue("phpmodule", $_SERVER['PHP_SELF']."?id=".getValue("func"));
+    return runTemplate( "../templates/".getValue("func").".htm.php" );
+    
+}
+
+function myGalerie() {
+    // Template abfüllen und Resultat zurückgeben
+    if(isset($_POST['login'])){
+        userLogin($_POST);
+        setValues($_POST);
+
+    }
+    setValue("phpmodule", $_SERVER['PHP_SELF']."?id=".getValue("func"));
+    return runTemplate( "../templates/".getValue("func").".htm.php" );
+
+}
+
+function galerie() {
+    // Template abfüllen und Resultat zurückgeben
+    if(isset($_POST['login'])){
+        userLogin($_POST);
+        setValues($_POST);
+
+    }
+    setValue("phpmodule", $_SERVER['PHP_SELF']."?id=".getValue("func"));
+    return runTemplate( "../templates/".getValue("func").".htm.php" );
+
+}
 /*
  * Beinhaltet die Anwendungslogik zur Registration
  */
@@ -31,14 +78,41 @@ function registration() {
             setValue("meldung", $fehlermeldung);
             setValues($_POST);
         }else{
-            
           addUser($_POST);
-            
         }
     }
     setValue("phpmodule", $_SERVER['PHP_SELF']."?id=".getValue("func"));
     return runTemplate( "../templates/".getValue("func").".htm.php" ); 
 }
+function addGalerie() {
+    $fehlermeldung = "";
+    if(isset($_POST['register'])){
+        $fehlermeldung = checkRegisterInput();
+        if(strlen($fehlermeldung) > 0){
+            setValue("meldung", $fehlermeldung);
+            setValues($_POST);
+        }else{
+            addUser($_POST);
+        }
+    }
+    setValue("phpmodule", $_SERVER['PHP_SELF']."?id=".getValue("func"));
+    return runTemplate( "../templates/".getValue("func").".htm.php" );
+}
+function addPicture() {
+    $fehlermeldung = "";
+    if(isset($_POST['register'])){
+        $fehlermeldung = checkRegisterInput();
+        if(strlen($fehlermeldung) > 0){
+            setValue("meldung", $fehlermeldung);
+            setValues($_POST);
+        }else{
+            addUser($_POST);
+        }
+    }
+    setValue("phpmodule", $_SERVER['PHP_SELF']."?id=".getValue("func"));
+    return runTemplate( "../templates/".getValue("func").".htm.php" );
+}
+
 function checkRegisterInput(){
     if(!checkEmpty(getPost('email'))&&!checkEmpty(getPost('password'))&&!checkEmpty(getPost('repassword'))&&!checkEmpty(getPost('nickname'))){
         $fehlermeldung =   "Bitte fuelle die felder aus!" ;
@@ -62,6 +136,7 @@ function checkRegisterInput(){
     }
     return $fehlermeldung; 
 }
+
 function ausloggen(){
     $_SESSION = array();
     session_destroy();

@@ -38,9 +38,9 @@
   </div>
   <div class="container" style="margin-top:20px">
 	<div class="row">
-	  <div class="col-md-offset-3 col-md-4 text-center small text-muted">
-		&copy;&nbsp;Copyright gibb
-	  </div>
+        <div class="col-md-offset-3 col-md-4 text-center small text-muted">
+            &copy;&nbsp;Copyright gibb Stdent Tim & Nelson
+        </div>
 	</div>
   </div>
 </body>
